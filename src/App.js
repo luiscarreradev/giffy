@@ -3,7 +3,7 @@ import './App.css';
 import ListOfGifs from './components/ListOfGifs';
 
 function App() {
-  const [keyword, setKeyword] = useState('');
+  const [keyword, setKeyword] = useState('programming');
 
   const handleChange = (evento) => {
     setKeyword(evento.target.value);
@@ -19,7 +19,9 @@ function App() {
               type="search"
               name="input-search"
               onChange={handleChange} />
-            <ListOfGifs keyword={keyword}/>
+            <div className="ListOfGifs">
+              <ListOfGifs keyword={keyword}/>
+            </div>
           </section>
       </div>
   );

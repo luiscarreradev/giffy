@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import getGifs from '../Services/getGifs'
 import Gif from './Gif'
+import '../styles/ListOfGifs.css'
 
 const ListOfGifs = ({ keyword }) => {
   const [gifs, setGifs] = useState([])

@@ -1,25 +1,28 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import './App.css';
-import getGifs from './Services/getGifs';
 import ListOfGifs from './components/ListOfGifs';
 
 function App() {
-    const [gifs, setGifs] = useState([])
+  const [keyword, setKeyword] = useState('');
 
-    useEffect(() => {
-      getGifs({keyword: 'rick'})
-      .then(gifs => setGifs(gifs))
-    }, [])
+  const handleChange = (evento) => {
+    setKeyword(evento.target.value);
+  }
 
-    return (
-        <div className="App">
-            <section className="App-content">
-                {
-                  <ListOfGifs gifs={gifs}/>
-                }
-            </section>
-        </div>
-    );
+
+  return (
+      <div className="App">
+          <section className="App-content">
+            <h1>Gifs App</h1>
+            <input
+              placeholder='Ingresa nombre del gif ...'
+              type="search"
+              name="input-search"
+              onChange={handleChange} />
+            <ListOfGifs keyword={keyword}/>
+          </section>
+      </div>
+  );
 }
 
 export default App;

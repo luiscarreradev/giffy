@@ -44,3 +44,8 @@ input {
   padding: 1rem 1.5rem;
   margin-bottom: 1rem;
 }
+
+a {
+  color: #eee;
+  text-decoration: none;
+}

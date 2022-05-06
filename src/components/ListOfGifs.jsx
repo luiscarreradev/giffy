@@ -3,21 +3,27 @@ import getGifs from '../Services/getGifs'
 import Gif from './Gif'
 import '../styles/ListOfGifs.css'
 
-const ListOfGifs = ({ keyword }) => {
+const ListOfGifs = ({params}) => {
   const [gifs, setGifs] = useState([])
+  const { keyword } = params
 
   useEffect(() => {
     getGifs({ keyword })
     .then(gifs => setGifs(gifs))
   }, [keyword])
 
-  return gifs.map(({ title, url, id }) => 
-    <Gif
-      title={title}
-      url={url}
-      key={id}
-    />
-  )
+  return <div className="ListOfGifs">
+    {
+        gifs.map(({ title, url, id }) => 
+        <Gif
+          title={title}
+          url={url}
+          key={id}
+        />
+      )
+    }
+  </div>
+  
 }
 
 export default ListOfGifs

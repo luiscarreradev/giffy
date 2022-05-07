@@ -4,13 +4,20 @@ import Gif from './Gif'
 import '../styles/ListOfGifs.css'
 
 const ListOfGifs = ({params}) => {
+  const [loading, setLoading] = useState(false)
   const [gifs, setGifs] = useState([])
   const { keyword } = params
 
   useEffect(() => {
+    setLoading(true)
     getGifs({ keyword })
-    .then(gifs => setGifs(gifs))
+      .then(gifs => {
+        setGifs(gifs)
+        setLoading(false)
+      })
   }, [keyword])
+
+  if(loading) return <i className='loading'>⚛️</i>
 
   return <div className="ListOfGifs">
     {

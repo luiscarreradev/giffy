@@ -49,3 +49,10 @@ a {
   color: #eee;
   text-decoration: none;
 }
+
+i {
+  margin-top: 4rem;
+  font-size: 10rem;
+  font-weight: bolder;
+  color: white;
+}
